@@ -4,7 +4,6 @@ import * as React from "react";
 import ConnectWallet from "../ConnectWallet";
 import { DiscordLink, TwitterLink } from "../Links";
 import Logo from "../Logo";
-import HeaderImg from "./header.jpg";
 import "./styles.css";
 
 export default function Navbar() {
@@ -23,7 +22,7 @@ export default function Navbar() {
           <div class="text">Mint</div>
         </div>
       </a>
-      <img src={HeaderImg} width={"100%"} alt="header" />
+      <img src="images/header.png" width={"100%"} alt="header" />
     </section>
   );
 }
