@@ -13,7 +13,7 @@ export default function Discord() {
           consequat.
         </p>
         <div class="sr-top-more-delayed">
-          <a href="/" class="cta">
+          <a href="https://discord.gg/s2Y8RpCg" class="cta">
             Join our Discord
           </a>
         </div>

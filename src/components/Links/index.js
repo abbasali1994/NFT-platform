@@ -5,7 +5,11 @@ import * as React from "react";
 export function TwitterLink() {
   return (
     <div class="link">
-      <a href="/" target="_blank" class="twitter row"></a>
+      <a
+        href="https://twitter.com/KamiWorldNFT"
+        target="_blank"
+        class="twitter row"
+      ></a>
     </div>
   );
 }
@@ -13,7 +17,11 @@ export function TwitterLink() {
 export function DiscordLink() {
   return (
     <div class="link">
-      <a href="/" target="_blank" class="discord row"></a>
+      <a
+        href="https://discord.gg/s2Y8RpCg"
+        target="_blank"
+        class="discord row"
+      ></a>
     </div>
   );
 }
