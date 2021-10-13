@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./style.css";
-export default function Counter({ counter, setCounter }) {
+export default function Counter({ counter, setCounter, maxCount }) {
   const handleClick = (inc) => {
     if (counter === 0 && inc === -1) return;
-    if (counter === 3 && inc === 1) return;
+    if (counter === maxCount && inc === 1) return;
     setCounter(counter + inc);
   };
   return (

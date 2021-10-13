@@ -6,8 +6,14 @@ import { WalletLink } from "walletlink";
 import Fortmatic from "fortmatic";
 
 import store from "../store";
-import { setAddress, setEnsName } from "../redux/walletSlice";
-import { CHAIN_ID, INFURA_ID } from "../constants";
+import {
+  setAddress,
+  setEnsName,
+  setTokenId,
+  setTokens,
+} from "../redux/walletSlice";
+import { contractAddress, CHAIN_ID, INFURA_ID } from "../constants";
+import ABI from "../ABI.json";
 
 let provider = null;
 
@@ -72,6 +78,7 @@ export const connectToWallet = async () => {
     } catch (e) {
       console.log(e);
     }
+    fetchNFTData();
     setWalletListener(web3Connection);
     setNetworkListener(web3Connection);
   } catch (e) {
@@ -103,4 +110,57 @@ export const formatAddress = (ethAddress) => {
       ethAddress.substring(38, 42).toUpperCase()
     );
   else return "CONNECT WALLET";
+};
+
+export const mintNFT = async (count) => {
+  if (provider !== null) {
+    try {
+      const signer = provider.getSigner();
+      const gasPrice = await provider.getGasPrice();
+      const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+      const txn = await mintContract.mint(count, {
+        value: ethers.utils.parseEther((0.1 * count).toString()),
+        gasLimit: 300000,
+        gasPrice,
+      });
+      await txn.wait();
+      return true;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+export const fetchNFTData = async () => {
+  if (provider !== null) {
+    try {
+      const signer = provider.getSigner();
+      const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+      const maxTokens = (await mintContract.maxTokens()).toString();
+      const MAX_MINT_COUNT = parseFloat(
+        (await mintContract.MAX_MINT_COUNT()).toString()
+      );
+      const MINT_FEE = ethers.utils.formatEther(
+        (await mintContract.MINT_FEE()).toString()
+      );
+      const _tokenIdTracker = (await mintContract._tokenIdTracker()).toString();
+      store.dispatch(
+        setTokens({ maxTokens, MAX_MINT_COUNT, MINT_FEE, _tokenIdTracker })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+export const fetchNFTTokenID = async () => {
+  try {
+    console.log("fetchNFTTokenID");
+    const signer = provider.getSigner();
+    const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+    const _tokenIdTracker = (await mintContract._tokenIdTracker()).toString();
+    store.dispatch(setTokenId(_tokenIdTracker));
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -625,7 +625,7 @@ header .discord {
   -webkit-mask: url(/images/discord.svg) no-repeat center;
   mask: url(/images/discord.svg) no-repeat center;
 }
-header .wallet {
+.wallet {
   background: #01030d;
   border: none;
   font-family: Space Grotesk;
@@ -634,7 +634,7 @@ header .wallet {
   padding: 6px 20px;
   transition: all 0.3s ease-in-out;
 }
-header .wallet:hover {
+.wallet:hover {
   background-color: #6c77ea;
 }
 #hero {

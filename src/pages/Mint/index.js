@@ -1,16 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import ConnectWallet from "../../components/ConnectWallet";
 import Counter from "../../components/Counter";
 import MintBtn from "../../components/MintBtn";
+import { tokens, userAddress } from "../../redux/walletSlice";
+import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
 import nftImage from "./nft.png";
 
 export default function Mint() {
+  const tokenDetails = useSelector(tokens);
+  const address = useSelector(userAddress);
   const [counter, setCounter] = useState(0);
-  const [sold] = useState(0);
-  const [price] = useState(0.1);
-  const handleMint = () => {
-    if (counter) alert("mint function trigger with count:" + counter);
+
+  const handleMint = async () => {
+    if (counter) {
+      await mintNFT(counter);
+      fetchNFTTokenID();
+    }
   };
   return (
     <>
@@ -26,11 +34,23 @@ export default function Mint() {
         />
       </div>
       <div class="column center">
-        <Counter counter={counter} setCounter={setCounter} />
-        <MintBtn mint={handleMint} counter={counter} />
+        {!address ? (
+          <ConnectWallet />
+        ) : (
+          <>
+            <Counter
+              counter={counter}
+              setCounter={setCounter}
+              maxCount={tokenDetails.MAX_MINT_COUNT}
+            />
+            <MintBtn mint={handleMint} counter={counter} />
 
-        <div>{sold} out of 10,000</div>
-        <div>price: {price}ETH</div>
+            <div>
+              {tokenDetails._tokenIdTracker} out of {tokenDetails.maxTokens}
+            </div>
+            <div>price: {tokenDetails.MINT_FEE}ETH</div>
+          </>
+        )}
       </div>
     </>
   );
