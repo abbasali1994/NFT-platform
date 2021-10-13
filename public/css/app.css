@@ -1016,18 +1016,19 @@ header .wallet:hover {
 #discord {
   position: relative;
   width: 100%;
-  background: url(/images/sky.jpg) no-repeat;
+  background: url(/images/starry.png) no-repeat;
   background-size: cover;
   background-position: 50% left;
   margin-top: 160px;
   overflow: hidden;
+  color: white;
 }
 #discord .container {
   padding: 100px 60px;
 }
 #discord h2 {
   width: 55.55%;
-  color: #01030d;
+  color: white;
   margin-bottom: 25px;
   font-size: 5rem;
 }
