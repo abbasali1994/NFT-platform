@@ -1,0 +1,9 @@
+{
+  "name": "image1",
+  "description": "Test NFT!",
+  "external_url": "https://pedantic-neumann-eceded.netlify.app/img_metadata.json",
+  "image": "https://pedantic-neumann-eceded.netlify.app/images/image1.png",
+  "attributes": [
+    { "trait_type": "Background", "value": "Green" }
+  ]
+}
