@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import * as React from "react";
-import { companyName } from "../../constants";
+import { companyName, contractAddress } from "../../constants";
 import { DiscordLink, TwitterLink } from "../Links";
 import Logo from "../Logo";
 
@@ -11,9 +11,7 @@ export default function Footer() {
         <div class="infos column sr-top-fast">
           <div class="blockmark column">
             <Logo />
-            <p class="baseline">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            <p class="baseline">Join The Citadel of Tomorrow</p>
           </div>
           <p class="copyright">©2021 {companyName}. All rights reserved.</p>
         </div>
@@ -26,10 +24,12 @@ export default function Footer() {
             >
               Home
             </a>
-            <a href="/terms" class="">
+            <a href="/" class="">
               Terms &amp; Conditions
             </a>
-            <a href="https://etherscan.io">Smart Contract</a>
+            <a href={`https://etherscan.io/address/${contractAddress}`}>
+              Smart Contract
+            </a>
           </div>
           <div class="social row">
             <TwitterLink />

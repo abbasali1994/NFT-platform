@@ -10,7 +10,7 @@ export default function Content() {
             <div class="degrade">Omni race</div>The Architect
           </h2>
           <p>
-            Apart of the two most ancient races in the Kamiverse. A mysterious
+            One of the two most ancient races in the Kamiverse. A mysterious
             and secretive race that prefers isolation.
           </p>
           <p>
@@ -33,7 +33,7 @@ export default function Content() {
             <div class="degrade">Noble race</div>The Pilot
           </h2>
           <p>
-            Apart of the two most ancient races in the Kamiverse. A proud and
+            One of the two most ancient races in the Kamiverse. A proud and
             outspoken race that rule over the citadel.
           </p>
           <p>
@@ -54,7 +54,7 @@ export default function Content() {
             that carries out all infield labor for the species.
           </p>
           <p>
-            They are an incredibly durable race.; Their bodily shape permits
+            They are an incredibly durable race. Their bodily shape permits
             them to withstand all extreme physical conditions . They’re mission
             is to explore the universe and return the relics of the cosmos to
             the citadel.

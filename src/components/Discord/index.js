@@ -8,9 +8,8 @@ export default function Discord() {
       <div class="container">
         <h2 class="sr-top-fast">Join the community</h2>
         <p class="sr-top-fast-delayed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt laboris nisi ut aliquip ex ea commodo
-          consequat.
+          Come Join our Discord to speak with the community and keep up to date
+          with all things Kami.
         </p>
         <div class="sr-top-more-delayed">
           <a href="https://discord.gg/s2Y8RpCg" class="cta">
