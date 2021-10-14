@@ -7,7 +7,7 @@ import Counter from "../../components/Counter";
 import MintBtn from "../../components/MintBtn";
 import { tokens, userAddress } from "../../redux/walletSlice";
 import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
-import nftImage from "./nft.png";
+import nftImage from "./nft.gif";
 
 export default function Mint() {
   const tokenDetails = useSelector(tokens);
