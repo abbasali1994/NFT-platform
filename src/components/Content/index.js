@@ -73,7 +73,7 @@ function DesktopContent() {
           <p>
             They are masters of the divine arts. Their bodily shape permits them
             to tap into psychic powers which allow select Nobles to read minds,
-            use telekinesis and access other types of psychic abilities. They’re
+            use telekinesis and access other types of psychic abilities. Their 
             mission is to steer society into their ideal vision.
           </p>
         </div>
@@ -157,7 +157,7 @@ function MobileContent() {
           <p>
             They are masters of the divine arts. Their bodily shape permits them
             to tap into psychic powers which allow select Nobles to read minds,
-            use telekinesis and access other types of psychic abilities. They’re
+            use telekinesis and access other types of psychic abilities. Their 
             mission is to steer society into their ideal vision.
           </p>
         </div>
