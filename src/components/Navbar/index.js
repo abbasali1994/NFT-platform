@@ -17,12 +17,7 @@ export default function Navbar() {
           <ConnectWallet />
         </div>
       </header>
-      <a class="hero-main-btn clickable" href="/mint">
-        <div class="element">
-          <div class="text">Mint</div>
-        </div>
-      </a>
-      <img src="images/header.png" width={"100%"} alt="header" />
+      <img src="images/header.jpg" width={"100%"} alt="header" />
     </section>
   );
 }

@@ -504,7 +504,7 @@ h4 {
   line-height: 2.6rem;
 }
 a {
-  color: #4753d6;
+  color: #7400FF;
   transition: all 0.3s ease-in-out;
 }
 a:hover {
@@ -525,7 +525,7 @@ p {
 }
 .cta {
   padding: 16px 30px;
-  background: #4753d6;
+  background: #7400FF;
   color: #fff;
   text-decoration: none;
   font-weight: 700;
@@ -611,17 +611,17 @@ header .link a {
   align-items: center;
 }
 header .twitter {
-  background-color: #4753d6;
+  background-color: #7400FF;
   -webkit-mask: url(/images/twitter.svg) no-repeat center;
   mask: url(/images/twitter.svg) no-repeat center;
 }
 header .opensea {
-  background-color: #4753d6;
+  background-color: #7400FF;
   -webkit-mask: url(/images/opensea.svg) no-repeat center;
   mask: url(/images/opensea.svg) no-repeat center;
 }
 header .discord {
-  background-color: #4753d6;
+  background-color: #7400FF;
   -webkit-mask: url(/images/discord.svg) no-repeat center;
   mask: url(/images/discord.svg) no-repeat center;
 }
@@ -665,11 +665,11 @@ header .discord {
   padding: 60px 0;
 }
 #light-hero header .link {
-  border: 1px solid #4753d6;
-  box-shadow: inset 0 0 0 #4753d6;
+  border: 1px solid #7400FF;
+  box-shadow: inset 0 0 0 #7400FF;
 }
 #light-hero header .link:hover {
-  box-shadow: inset 0 -54px 0 #4753d6;
+  box-shadow: inset 0 -54px 0 #7400FF;
 }
 #light-hero header .link:last-child {
   margin-right: 0;
@@ -690,7 +690,7 @@ header .discord {
   mask: url(/images/discord.svg) no-repeat center;
 }
 #light-hero header .wallet {
-  background: #4753d6;
+  background: #7400FF;
 }
 #light-hero header .wallet:hover {
   background-color: #6c77ea;
@@ -762,7 +762,7 @@ header .discord {
   transition: all 0.3s ease-in-out;
 }
 #gallery .carousel__pagination-item button:hover {
-  background: #4753d6;
+  background: #7400FF;
 }
 #gallery .carousel__pagination-item button.carousel__pagination-button--active {
   height: 13px;
@@ -920,7 +920,7 @@ header .discord {
   margin-bottom: 0;
 }
 #team .link {
-  background: #4753d6;
+  background: #7400FF;
   width: 44px;
   height: 44px;
   transition: all 0.3s ease-in-out;
@@ -982,7 +982,7 @@ header .discord {
   transition: all 0.3s ease-in-out;
 }
 #team .carousel__pagination-item button:hover {
-  background: #4753d6;
+  background: #7400FF;
 }
 #team .carousel__pagination-item button.carousel__pagination-button--active {
   height: 13px;
@@ -1038,7 +1038,7 @@ header .discord {
 }
 #discord .cta {
   padding: 16px 30px;
-  background: #4753d6;
+  background: #7400FF;
   color: #fff;
   text-decoration: none;
   font-weight: 700;
@@ -1097,7 +1097,7 @@ footer .nav a {
   transition: all 0.3s ease-in-out;
 }
 footer .nav a:hover {
-  color: #4753d6;
+  color: #7400FF;
 }
 footer .nav a:first-child {
   color: #fff;
@@ -1106,15 +1106,15 @@ footer .social {
   margin: 20px 0px;
 }
 footer .link {
-  border: 1px solid #4753d6;
+  border: 1px solid #7400FF;
   width: 44px;
   height: 44px;
   margin-right: 15px;
-  box-shadow: inset 0 0 0 #4753d6;
+  box-shadow: inset 0 0 0 #7400FF;
   transition: all 0.3s ease-in-out;
 }
 footer .link:hover {
-  box-shadow: inset 0 -54px 0 #4753d6;
+  box-shadow: inset 0 -54px 0 #7400FF;
 }
 footer .link:last-child {
   margin-right: 0;
@@ -1195,11 +1195,11 @@ footer .discord {
   width: calc(55.55% + 60px);
 }
 #left-hero header .link {
-  border: 1px solid #4753d6;
-  box-shadow: inset 0 0 0 #4753d6;
+  border: 1px solid #7400FF;
+  box-shadow: inset 0 0 0 #7400FF;
 }
 #left-hero header .link:hover {
-  box-shadow: inset 0 -54px 0 #4753d6;
+  box-shadow: inset 0 -54px 0 #7400FF;
 }
 #left-hero header .link:last-child {
   margin-right: 0;
@@ -1220,7 +1220,7 @@ footer .discord {
   mask: url(/images/discord.svg) no-repeat center;
 }
 #left-hero header .wallet {
-  background: #4753d6;
+  background: #7400FF;
 }
 #left-hero header .wallet:hover {
   background-color: #6c77ea;
@@ -1440,13 +1440,13 @@ footer .discord {
   padding-right: 50px;
 }
 #cookies p a {
-  color: #4753d6;
+  color: #7400FF;
   font-weight: 700;
 }
 #cookies .cta {
   font-size: 1.6rem;
   padding: 10px 20px;
-  background: #4753d6;
+  background: #7400FF;
   color: #fff;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -1471,15 +1471,15 @@ footer .discord {
   margin: 80px auto 0;
 }
 #updating .link {
-  border: 1px solid #4753d6;
+  border: 1px solid #7400FF;
   width: 44px;
   height: 44px;
   margin-right: 15px;
-  box-shadow: inset 0 0 0 #4753d6;
+  box-shadow: inset 0 0 0 #7400FF;
   transition: all 0.3s ease-in-out;
 }
 #updating .link:hover {
-  box-shadow: inset 0 -54px 0 #4753d6;
+  box-shadow: inset 0 -54px 0 #7400FF;
 }
 #updating .link:last-child {
   margin-right: 0;
@@ -1679,7 +1679,7 @@ footer .discord {
   text-decoration: none;
 }
 .hero-main-btn .element {
-  background: #4753d6;
+  background: #7400FF;
   padding: 25px 50px;
   transition: all 0.3s ease-in-out;
   color: #fff;
@@ -2006,7 +2006,7 @@ footer .discord {
     padding: 6px 13px;
   }
   #hero {
-    height: 500px;
+    height: auto;
   }
   #presentation h2 {
     font-size: 8vw;

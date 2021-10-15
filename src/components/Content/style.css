@@ -5,3 +5,34 @@
 .imgCenter img {
   width: 75%;
 }
+
+.imgLeft {
+  text-align: left;
+}
+
+.imgLeft img {
+  width: 75%;
+}
+
+.imgRight {
+  text-align: right;
+}
+
+.imgRight img {
+  width: 75%;
+}
+
+
+.mintBtn {
+  padding-top: 20px;
+  margin: auto;
+  justify-content: center;
+  width: fit-content;
+}
+
+.heading {
+  margin: auto;
+  justify-content: center;
+  width: fit-content;
+  text-align: center;
+}
