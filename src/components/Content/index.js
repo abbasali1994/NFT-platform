@@ -14,18 +14,14 @@ export default function ContentWrapper() {
 
   element = width > mobileWidth ? <DesktopContent /> : <MobileContent />;
 
-  return element;
-}
-
-function DesktopContent() {
   return (
     <>
       <section id="presentation" class="container heading">
-        <h4>
+        <h3>
           Welcome to Kami World, a vibrant and enchanted realm! A collection
-          1000 Kami's all hand made and created in blender! Explore the
+          of 1000 Kamis all hand made and created in blender! Explore the
           Kamiverse and enjoy your stay at the Citadel.
-        </h4>
+        </h3>
         <div class="mintBtn">
           <a class="hero-main-btn clickable" href="/mint">
             <div class="element">
@@ -34,7 +30,14 @@ function DesktopContent() {
           </a>
         </div>
       </section>
+      {element}
+    </>
+  );
+}
 
+function DesktopContent() {
+  return (
+    <>
       <section id="presentation" class="container row">
         <div class="description sr-top-fast" data-sr-id="2">
           <h2>
@@ -45,7 +48,7 @@ function DesktopContent() {
             secretive race that prefers isolation.
           </p>
           <p>
-            They are masters of the dark arts; their bodily shape allows them to
+            They are masters of the dark arts. Their bodily shape allows them to
             shapeshift, enter others' dreams, and plant curses on individuals.
             They aspire to bring their creations into the world regardless of
             the repercussions.
@@ -68,7 +71,7 @@ function DesktopContent() {
             outspoken race that rule over the citadel.
           </p>
           <p>
-            They are masters of the divine arts; Their bodily shape permits them
+            They are masters of the divine arts. Their bodily shape permits them
             to tap into psychic powers which allow select Nobles to read minds,
             use telekinesis and access other types of psychic abilities. They’re
             mission is to steer society into their ideal vision.
@@ -86,7 +89,7 @@ function DesktopContent() {
           </p>
           <p>
             They are an incredibly durable race. Their bodily shape permits them
-            to withstand all extreme physical conditions . They’re mission is to
+            to withstand all extreme physical conditions. Their mission is to
             explore the universe and return the relics of the cosmos to the
             citadel.
           </p>
@@ -109,9 +112,9 @@ function DesktopContent() {
             that protects the citadel.
           </p>
           <p>
-            They are the silent guardians of the species.; Their bodily shape
-            grants them immortality at the price of emotion . They’re mission is
-            to protect the species and guard the citadel from outside foes
+            They are the silent guardians of the species. Their bodily shape
+            grants them immortality at the price of emotion. Their mission is
+            to protect the species and guard the citadel from outside foes.
           </p>
         </div>
       </section>
@@ -122,20 +125,6 @@ function DesktopContent() {
 function MobileContent() {
   return (
     <>
-      <section id="presentation" class="container heading">
-        <h4>
-          Welcome to Kami World, a vibrant and enchanted realm! A collection
-          1000 Kami's all hand made and created in blender! Explore the
-          Kamiverse and enjoy your stay at the Citadel.
-        </h4>
-        <div class="mintBtn">
-          <a class="hero-main-btn clickable" href="/mint">
-            <div class="element">
-              <div class="text">Mint</div>
-            </div>
-          </a>
-        </div>
-      </section>
       <section id="presentation" class="container row">
         <div class="description sr-top-fast" data-sr-id="2">
           <h2>
@@ -146,7 +135,7 @@ function MobileContent() {
             secretive race that prefers isolation.
           </p>
           <p>
-            They are masters of the dark arts; their bodily shape allows them to
+            They are masters of the dark arts. Their bodily shape allows them to
             shapeshift, enter others' dreams, and plant curses on individuals.
             They aspire to bring their creations into the world regardless of
             the repercussions.
@@ -166,7 +155,7 @@ function MobileContent() {
             outspoken race that rule over the citadel.
           </p>
           <p>
-            They are masters of the divine arts; Their bodily shape permits them
+            They are masters of the divine arts. Their bodily shape permits them
             to tap into psychic powers which allow select Nobles to read minds,
             use telekinesis and access other types of psychic abilities. They’re
             mission is to steer society into their ideal vision.
@@ -187,7 +176,7 @@ function MobileContent() {
           </p>
           <p>
             They are an incredibly durable race. Their bodily shape permits them
-            to withstand all extreme physical conditions . They’re mission is to
+            to withstand all extreme physical conditions. Their mission is to
             explore the universe and return the relics of the cosmos to the
             citadel.
           </p>
@@ -206,9 +195,9 @@ function MobileContent() {
             that protects the citadel.
           </p>
           <p>
-            They are the silent guardians of the species.; Their bodily shape
-            grants them immortality at the price of emotion . They’re mission is
-            to protect the species and guard the citadel from outside foes
+            They are the silent guardians of the species. Their bodily shape
+            grants them immortality at the price of emotion. Their mission is
+            to protect the species and guard the citadel from outside foes.
           </p>
         </div>
         <div class="imgCenter">

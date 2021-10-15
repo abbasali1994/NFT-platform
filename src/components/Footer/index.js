@@ -24,9 +24,7 @@ export default function Footer() {
             >
               Home
             </a>
-            <a href="/" class="">
-              Terms &amp; Conditions
-            </a>
+          
             <a href={`https://etherscan.io/address/${contractAddress}`}>
               Smart Contract
             </a>
