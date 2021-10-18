@@ -3,16 +3,16 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ConnectWallet from "../../components/ConnectWallet";
-import Counter from "../../components/Counter";
+// import Counter from "../../components/Counter";
 import { ComingSoonBtn } from "../../components/MintBtn";
 import { tokens, userAddress } from "../../redux/walletSlice";
 // import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
 import nftImage from "./nft.gif";
 
 export default function Mint() {
-  const tokenDetails = useSelector(tokens);
+  // const tokenDetails = useSelector(tokens);
   const address = useSelector(userAddress);
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
 
   // const handleMint = async () => {
   //   if (counter) {
@@ -38,11 +38,11 @@ export default function Mint() {
           <ConnectWallet />
         ) : (
           <>
-            <Counter
+            {/* <Counter
               counter={counter}
               setCounter={setCounter}
               maxCount={tokenDetails.MAX_MINT_COUNT}
-            />
+            /> */}
             <ComingSoonBtn />
 {/* 
             <div>
