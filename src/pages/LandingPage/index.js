@@ -10,6 +10,7 @@ export default function LandingPage() {
   return (
     <>
       <Navbar />
+      <img src="images/header.jpg" width={"100%"} alt="header" />
       <Content />
       <Discord />
       <Footer />

@@ -148,18 +148,42 @@ export const fetchNFTData = async () => {
         setTokens({ maxTokens, MAX_MINT_COUNT, MINT_FEE, _tokenIdTracker })
       );
     } catch (error) {
-      console.log(error);
+      console.log(error); 
     }
   }
 };
 
 export const fetchNFTTokenID = async () => {
   try {
-    console.log("fetchNFTTokenID");
     const signer = provider.getSigner();
     const mintContract = new ethers.Contract(contractAddress, ABI, signer);
     const _tokenIdTracker = (await mintContract._tokenIdTracker()).toString();
     store.dispatch(setTokenId(_tokenIdTracker));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const BigNumberToNumber = (value, decimals) => {
+  return  ethers.utils.formatUnits( value, 0 );
+}
+
+export const fetchUserData =async () =>{
+  try {
+    const signer = provider.getSigner();
+    const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+    const userAddress = await signer.getAddress();
+    const tempCounts = (await mintContract.balanceOf(userAddress));
+    const count  = BigNumberToNumber( tempCounts, 0 );
+    const nftURLs = [];
+    for(let i = 0 ; i < parseInt(count) ; i ++)
+    {
+      const tempTokenId = await mintContract.tokenOfOwnerByIndex(userAddress, i);
+      const tempTokenURI = await mintContract.tokenURI(tempTokenId);
+      nftURLs[i] = tempTokenURI;
+    }
+
+    return nftURLs;
   } catch (error) {
     console.log(error);
   }

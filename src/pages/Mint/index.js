@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import ConnectWallet from "../../components/ConnectWallet";
 // import Counter from "../../components/Counter";
 import { ComingSoonBtn } from "../../components/MintBtn";
-import { tokens, userAddress } from "../../redux/walletSlice";
+import { userAddress } from "../../redux/walletSlice";
 // import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
 import nftImage from "./nft.gif";
 
@@ -20,9 +20,10 @@ export default function Mint() {
   //     fetchNFTTokenID();
   //   }
   // };
+  
   return (
     <>
-      <div class="container column center">
+      <div className="container column center">
         <img
           src={nftImage}
           alt="nft"
@@ -33,7 +34,7 @@ export default function Mint() {
           }}
         />
       </div>
-      <div class="column center">
+      <div className="column center">
         {!address ? (
           <ConnectWallet />
         ) : (
