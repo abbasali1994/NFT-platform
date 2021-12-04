@@ -3,21 +3,25 @@
 import * as React from "react";
 import ConnectWallet from "../ConnectWallet";
 import { DiscordLink, TwitterLink } from "../Links";
+import { Link } from "@mui/material";
+
 import Logo from "../Logo";
 import "./styles.css";
 
 export default function Navbar() {
   return (
-    <section id="hero">
-      <header class="container row sr-top-slow header" data-sr-id="0">
-        <Logo />
-        <div class="socialnav row">
+    <div>
+      <header className="container row sr-top-slow header" data-sr-id="0">
+        <Logo/>
+          <h5><Link color="inherit" underline="none" href="/">Home</Link></h5>
+          <h5><Link color="inherit" underline="none" href="/mykamis">My Kamis</Link></h5>
+          <h5><Link color="inherit" underline="none" href="/markets">Markets</Link></h5>
+        <div className="socialnav row">
           <TwitterLink />
           <DiscordLink />
           <ConnectWallet />
         </div>
       </header>
-      <img src="images/header.jpg" width={"100%"} alt="header" />
-    </section>
+      </div>
   );
 }

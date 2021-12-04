@@ -24,7 +24,7 @@ export default function Mint() {
   };
   return (
     <>
-      <div class="container column center">
+      <div className="container column center">
         <img
           src={nftImage}
           alt="nft"
@@ -35,7 +35,7 @@ export default function Mint() {
           }}
         />
       </div>
-      <div class="column center">
+      <div className="column center">
         {!address ? (
           <ConnectWallet />
         ) : contractAddress[networkId] ? (

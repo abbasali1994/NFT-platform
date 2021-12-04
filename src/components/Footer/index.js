@@ -7,20 +7,20 @@ import Logo from "../Logo";
 export default function Footer() {
   return (
     <footer>
-      <div class="container row">
-        <div class="infos column sr-top-fast">
-          <div class="blockmark column">
+      <div className="container row">
+        <div className="infos column sr-top-fast">
+          <div className="blockmark column">
             <Logo />
-            <p class="baseline">Join The Citadel of Tomorrow</p>
+            <p className="baseline">Join The Citadel of Tomorrow</p>
           </div>
-          <p class="copyright">©2021 {companyName}. All rights reserved.</p>
+          <p className="copyright">©2021 {companyName}. All rights reserved.</p>
         </div>
-        <div class="right column sr-top-fast-delayed" data-sr-id="11">
-          <div class="nav column">
+        <div className="right column sr-top-fast-delayed" data-sr-id="11">
+          <div className="nav column">
             <a
               aria-current="page"
               href="/"
-              class="router-link-active router-link-exact-active"
+              className="router-link-active router-link-exact-active"
             >
               Home
             </a>
@@ -29,7 +29,7 @@ export default function Footer() {
               Smart Contract
             </a>
           </div>
-          <div class="social row">
+          <div className="social row">
             <TwitterLink />
 
             <DiscordLink />

@@ -1,0 +1,10 @@
+.kamis-container {
+    padding:5%;
+    min-height: 70vh;
+}
+
+.load-spin-container {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+}

@@ -1,16 +1,18 @@
 import * as React from "react";
 import "./style.css";
+
 export default function Counter({ counter, setCounter, maxCount }) {
   const handleClick = (inc) => {
     if (counter === 0 && inc === -1) return;
     if (counter === maxCount && inc === 1) return;
     setCounter(counter + inc);
   };
+  
   return (
-    <div class="row center">
-      <h1 class="counter">{counter}</h1>
-      <div class="column center">
-        <button class="counterBtn" onClick={() => handleClick(1)}>
+    <div className="row center">
+      <h1 className="counter">{counter}</h1>
+      <div className="column center">
+        <button className="counterBtn" onClick={() => handleClick(1)}>
           <div>
             <svg
               stroke="currentColor"
@@ -24,7 +26,7 @@ export default function Counter({ counter, setCounter, maxCount }) {
             </svg>
           </div>
         </button>
-        <button class="counterBtn" onClick={() => handleClick(-1)}>
+        <button className="counterBtn" onClick={() => handleClick(-1)}>
           <div>
             <svg
               stroke="currentColor"
