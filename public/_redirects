@@ -1,5 +1,3 @@
-
-
 /metadata/0 /metadata/metadata1.json  200
 /metadata/1 /metadata/metadata2.json  200
 /metadata/2 /metadata/metadata3.json  200
@@ -1000,6 +998,7 @@
 /metadata/997 /metadata/metadata998.json  200
 /metadata/998 /metadata/metadata999.json  200
 
-
 /    /index.html   200
-/mint   /index.html   200   
+/mint   /index.html   200
+/mykamis   /index.html   200
+/markets   /index.html   200   
