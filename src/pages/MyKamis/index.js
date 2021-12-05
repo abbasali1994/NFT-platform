@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Grid } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Grid, Typography } from "@mui/material";
 import LoaderSpinner from "react-loader-spinner";
 
+import { userAddress } from "../../redux/walletSlice";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import NFT from "../../components/NFT";
@@ -13,6 +15,7 @@ import "./style.css";
 export default function MyKamis() {
     const provider = getEthersProvider();
     const [nftURLs, setNftURLs] = useState([]);
+    const address = useSelector(userAddress);
 
     useEffect(() => {
         if (provider) {
@@ -26,29 +29,38 @@ export default function MyKamis() {
         <>
             <Navbar />
             <div  className="kamis-container">
-                <Grid container spacing={3}>
-                {
-                nftURLs.length > 0 ? (
-                    <>
-                        {
-                            nftURLs.map((url ,id) => {
-                                return (
-                                    <NFT metaUrl = {url} key={id} />
-                                )
-                            })
-                        }
-                    </>
+                {address ? (
+                    <Grid container spacing={3}>
+                    {
+                    nftURLs.length > 0 ? (
+                        <>
+                            {
+                                nftURLs.map((url ,id) => {
+                                    return (
+                                        <NFT metaUrl = {url} key={id} />
+                                    )
+                                })
+                            }
+                        </>
+                    ) : (
+                        <div className="load-spin-container">
+                            <LoaderSpinner   
+                                type="ThreeDots"
+                                color="white"
+                                height={30}
+                                width={100}
+                            />
+                        </div>
+                    )}
+                    </Grid>
                 ) : (
-                    <div className="load-spin-container">
-                        <LoaderSpinner   
-                            type="ThreeDots"
-                            color="white"
-                            height={30}
-                            width={100}
-                        />
-                    </div>
+                    <Grid alignItems={'center'} textAlign={'center'}>
+                        <Typography variant="h2" gutterBottom component="div">
+                            Connect Your Wallet
+                        </Typography>
+                    </Grid>
                 )}
-                </Grid>
+                
             </div>
         <Footer/>
         </>

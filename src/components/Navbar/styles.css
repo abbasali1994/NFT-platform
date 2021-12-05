@@ -4,13 +4,13 @@
   transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   transition: opacity 1.5s cubic-bezier(0.5, 0, 0, 1) 0.2s,
     transform 1.5s cubic-bezier(0.5, 0, 0, 1) 0.2s;
-    font-family:fantasy;
-
 }
-#a{
+
+#a {
   text-decoration: none;
   text-underline-position: none;
 }
-.logo-container{
+
+.logo-container {
   width: 100px;
 }

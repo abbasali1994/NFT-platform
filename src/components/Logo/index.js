@@ -5,12 +5,9 @@ import * as React from "react";
 export default function Logo() {
   return (
     <div className="logo row">
-      <div className="row center" style={{fontFamily:"fantasy"}}>
-        <h5>KAMIS</h5>
+      <div className="row center">
         <img src="images/logo.png" alt="logo" width={150} />
-        <h5>WORLD</h5>
       </div>
-      {/* <div>{companyName}</div>  */}
     </div>
   );
 }
