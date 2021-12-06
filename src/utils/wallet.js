@@ -188,22 +188,20 @@ export const BigNumberToNumber = (value, decimals) => {
   return  ethers.utils.formatUnits( value, 0 );
 }
 
-export const fetchUserData =async () =>{
+export const fetchUserData = async () =>{
   try {
     const signer = provider.getSigner();
     const mintContract = new ethers.Contract(contractAddress, ABI, signer);
     const userAddress = await signer.getAddress();
-    const tempCounts = (await mintContract.balanceOf(userAddress));
-    const count  = BigNumberToNumber( tempCounts, 0 );
-    const nftURLs = [];
-    for(let i = 0 ; i < parseInt(count) ; i ++)
+    const tempCounts = await mintContract.balanceOf(userAddress);
+    const count = BigNumberToNumber(tempCounts, 0);
+    const nftIDs = [];
+    for (let i = 0; i < parseInt(count); i ++)
     {
       const tempTokenId = await mintContract.tokenOfOwnerByIndex(userAddress, i);
-      const tempTokenURI = await mintContract.tokenURI(tempTokenId);
-      nftURLs[i] = tempTokenURI;
+      nftIDs[i] = tempTokenId;
     }
-
-    return nftURLs;
+    return nftIDs;
   } catch (error) {
     console.log(error);
   }

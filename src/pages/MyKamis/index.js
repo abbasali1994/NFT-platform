@@ -14,13 +14,13 @@ import "./style.css";
 
 export default function MyKamis() {
     const provider = getEthersProvider();
-    const [nftURLs, setNftURLs] = useState([]);
+    const [nftIDs, setNftIDs] = useState([]);
     const address = useSelector(userAddress);
 
     useEffect(() => {
         if (provider) {
             fetchUserData().then((res) => {
-                setNftURLs(res);
+                setNftIDs(res);
             })   
         }
     }, [provider]);
@@ -32,12 +32,12 @@ export default function MyKamis() {
                 {address ? (
                     <Grid container spacing={3}>
                     {
-                    nftURLs.length > 0 ? (
+                    nftIDs.length > 0 ? (
                         <>
                             {
-                                nftURLs.map((url ,id) => {
+                                nftIDs.map((IDs ,id) => {
                                     return (
-                                        <NFT metaUrl = {url} key={id} />
+                                        <NFT metaUrl = {IDs} key={id} />
                                     )
                                 })
                             }
