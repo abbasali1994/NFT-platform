@@ -99,7 +99,7 @@ export default function NFT(props) {
                         Race
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Race ? item.attributes.Race: "..."}
+                        {item.attributes.Race ? item.attributes.Race: "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -107,7 +107,7 @@ export default function NFT(props) {
                         Skin
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Skin ? item.attributes.Skin : "..."}
+                        {item.attributes.Skin ? item.attributes.Skin : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -115,7 +115,7 @@ export default function NFT(props) {
                         Eyes
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Eyes ? item.attributes.Eyes : "..."}
+                        {item.attributes.Eyes ? item.attributes.Eyes : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -123,7 +123,7 @@ export default function NFT(props) {
                         Enchanted
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.EnchantedTool ? item.attributes.EnchantedTool : "..."}
+                        {item.attributes.EnchantedTool ? item.attributes.EnchantedTool : "None"}
                       </span>
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export default function NFT(props) {
                         Dye 
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Dye ? item.attributes.Dye : "..."}
+                        {item.attributes.Dye ? item.attributes.Dye : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -141,7 +141,7 @@ export default function NFT(props) {
                         Background
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Background ? item.attributes.Background : "..."}
+                        {item.attributes.Background ? item.attributes.Background : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -149,7 +149,7 @@ export default function NFT(props) {
                         Garments
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Garments ? item.attributes.Garments : "..."}
+                        {item.attributes.Garments ? item.attributes.Garments : "None"}
                       </span>
                     </div>
                   </div>
