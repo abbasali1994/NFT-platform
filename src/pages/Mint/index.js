@@ -1,25 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ConnectWallet from "../../components/ConnectWallet";
-// import Counter from "../../components/Counter";
-import { ComingSoonBtn } from "../../components/MintBtn";
-import { userAddress } from "../../redux/walletSlice";
-// import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
+import Counter from "../../components/Counter";
+import { MintBtn } from "../../components/MintBtn";
+import { contractAddress } from "../../constants";
+import { networkID, tokens, userAddress } from "../../redux/walletSlice";
+import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
 import nftImage from "./nft.gif";
 
 export default function Mint() {
-  // const tokenDetails = useSelector(tokens);
+  const tokenDetails = useSelector(tokens);
   const address = useSelector(userAddress);
-  // const [counter, setCounter] = useState(0);
+  const networkId = useSelector(networkID);
+  const [counter, setCounter] = useState(0);
 
-  // const handleMint = async () => {
-  //   if (counter) {
-  //     await mintNFT(counter);
-  //     fetchNFTTokenID();
-  //   }
-  // };
+  const handleMint = async () => {
+    if (counter) {
+      await mintNFT(counter);
+      fetchNFTTokenID();
+    }
+  };
   return (
     <>
       <div class="container column center">
@@ -36,20 +38,22 @@ export default function Mint() {
       <div class="column center">
         {!address ? (
           <ConnectWallet />
-        ) : (
+        ) : contractAddress[networkId] ? (
           <>
-            {/* <Counter
+            <Counter
               counter={counter}
               setCounter={setCounter}
               maxCount={tokenDetails.MAX_MINT_COUNT}
-            /> */}
-            <ComingSoonBtn />
-            {/* 
+            />
+            <MintBtn mint={handleMint} counter={counter} />
+
             <div>
               {tokenDetails._tokenIdTracker} out of {tokenDetails.maxTokens}
             </div>
-            <div>price: {tokenDetails.MINT_FEE}ETH</div> */}
+            <div>Price: {tokenDetails.MINT_FEE} AVAX</div>
           </>
+        ) : (
+          "Connect to Avax Network"
         )}
       </div>
     </>
