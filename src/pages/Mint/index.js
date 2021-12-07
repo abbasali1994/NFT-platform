@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/jsx-no-target-blank */
+import { CircularProgress } from "@mui/material";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ConnectWallet from "../../components/ConnectWallet";
@@ -7,7 +8,7 @@ import Counter from "../../components/Counter";
 import { MintBtn } from "../../components/MintBtn";
 import { contractAddress } from "../../constants";
 import { networkID, tokens, userAddress } from "../../redux/walletSlice";
-import { fetchNFTTokenID, mintNFT } from "../../utils/wallet";
+import { fetchNFTTokenID, mintNFT } from "../../utils/nft";
 import nftImage from "./nft.gif";
 
 export default function Mint() {
@@ -15,10 +16,12 @@ export default function Mint() {
   const address = useSelector(userAddress);
   const networkId = useSelector(networkID);
   const [counter, setCounter] = useState(0);
-
+  const [txnInProgress, setTxnInProgress] = useState(false);
   const handleMint = async () => {
     if (counter) {
+      setTxnInProgress(true);
       await mintNFT(counter);
+      setTxnInProgress(false);
       fetchNFTTokenID();
     }
   };
@@ -45,8 +48,11 @@ export default function Mint() {
               setCounter={setCounter}
               maxCount={tokenDetails.MAX_MINT_COUNT}
             />
-            <MintBtn mint={handleMint} counter={counter} />
-
+            {txnInProgress ? (
+              <CircularProgress />
+            ) : (
+              <MintBtn mint={handleMint} counter={counter} />
+            )}
             <div>
               {tokenDetails._tokenIdTracker} out of {tokenDetails.maxTokens}
             </div>
