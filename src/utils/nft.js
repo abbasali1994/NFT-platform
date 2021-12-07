@@ -60,7 +60,7 @@ export const fetchNFTData = async () => {
       const MINT_FEE = ethers.utils.formatEther(
         (await mintContract.MINT_FEE()).toString()
       );
-      const totalSupply = await mintContract.totalSupply();
+      const totalSupply = (await mintContract.totalSupply()).toString();
       store.dispatch(
         setTokens({
           maxTokens,
