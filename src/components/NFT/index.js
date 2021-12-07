@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Grid } from "@mui/material";
-import { styled } from '@mui/system';
-import Modal from '@mui/material/Modal';
+import { styled } from "@mui/system";
+import Modal from "@mui/material/Modal";
 
 import "./style.css";
 
-const Backdrop = styled('div')`
+const Backdrop = styled("div")`
   z-index: -1;
   position: fixed;
   right: 0;
@@ -16,60 +16,39 @@ const Backdrop = styled('div')`
   -webkit-tap-highlight-color: transparent;
 `;
 
-export default function NFT(props) {
-  const { metaUrl } = props;
-  const [item, setItem] = useState(null);
+export default function NFT({ nft }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const modalStyle = {
-    position: 'absolute',
-    top: '20%',
-    left: '25%',
-    width: '700px',
-    height: '440px',
-    outline: 'none',
+    position: "absolute",
+    top: "20%",
+    left: "25%",
+    width: "700px",
+    height: "440px",
+    outline: "none",
     background: "linear-gradient(to right, #361f38, #5e5e5e)",
     p: 4,
     borderRadius: "10px",
   };
 
-  const fetchNFT = async (nftID) => {
-    var tempID = parseInt(nftID) + 1;
-    const src = "metadata/metadata" + tempID + ".json";
-    const fetch_value = await fetch(src, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    const nftVal = await fetch_value.json();
-    return nftVal;
-  }
-
-  useEffect(() => {
-    if (metaUrl) {
-      fetchNFT(metaUrl)
-        .then((res) => {
-          setItem(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [metaUrl])
-
   return (
     <>
       <Grid item xs={6} sm={4}>
-        {item ? (
+        {nft ? (
           <>
             <div className="nftitem-container" onClick={handleOpen}>
               <div className="nftitem-image-container">
-                <img className="nftitem-image" alt="ntfitem-img" src={item.image} />
+                <img
+                  className="nftitem-image"
+                  alt="nftitem-img"
+                  src={nft.image}
+                />
               </div>
-              <div className="nftitem-title"><h5>#{item.name}</h5></div>
+              <div className="nftitem-title">
+                <h5>#{nft.name}</h5>
+              </div>
             </div>
 
             <Modal
@@ -81,13 +60,17 @@ export default function NFT(props) {
               BackdropComponent={Backdrop}
             >
               <div className="modal-div">
-                <div className="nft-name-show">#{item.name}</div>
+                <div className="nft-name-show">#{nft.name}</div>
                 <div className="modal-header">
                   <div className="item-image-modal">
-                    <img src={item.image} alt="modal-img" className="modal-image"></img>              
+                    <img
+                      src={nft.image}
+                      alt="modal-img"
+                      className="modal-image"
+                    ></img>
                   </div>
                   <div className="item-description-modal">
-                    <div>{item.description}</div>
+                    <div>{nft.description}</div>
                   </div>
                 </div>
                 <hr />
@@ -95,11 +78,11 @@ export default function NFT(props) {
                 <div className="modal-inline">
                   <div className="modal-inline-child">
                     <div className="attribute-container">
-                      <span className="attribute-container-header row center" >
+                      <span className="attribute-container-header row center">
                         Race
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Race ? item.attributes.Race: "None"}
+                        {nft.attributes.Race ? nft.attributes.Race : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -107,7 +90,7 @@ export default function NFT(props) {
                         Skin
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Skin ? item.attributes.Skin : "None"}
+                        {nft.attributes.Skin ? nft.attributes.Skin : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -115,7 +98,7 @@ export default function NFT(props) {
                         Eyes
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Eyes ? item.attributes.Eyes : "None"}
+                        {nft.attributes.Eyes ? nft.attributes.Eyes : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -123,17 +106,19 @@ export default function NFT(props) {
                         Enchanted
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.EnchantedTool ? item.attributes.EnchantedTool : "None"}
+                        {nft.attributes.EnchantedTool
+                          ? nft.attributes.EnchantedTool
+                          : "None"}
                       </span>
                     </div>
                   </div>
                   <div className="modal-inline-child">
                     <div className="attribute-container">
                       <span className="attribute-container-header row center">
-                        Dye 
+                        Dye
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Dye ? item.attributes.Dye : "None"}
+                        {nft.attributes.Dye ? nft.attributes.Dye : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -141,7 +126,9 @@ export default function NFT(props) {
                         Background
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Background ? item.attributes.Background : "None"}
+                        {nft.attributes.Background
+                          ? nft.attributes.Background
+                          : "None"}
                       </span>
                     </div>
                     <div className="attribute-container">
@@ -149,7 +136,9 @@ export default function NFT(props) {
                         Garments
                       </span>
                       <span className="attribute-container-tail row center">
-                        {item.attributes.Garments ? item.attributes.Garments : "None"}
+                        {nft.attributes.Garments
+                          ? nft.attributes.Garments
+                          : "None"}
                       </span>
                     </div>
                   </div>
