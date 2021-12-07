@@ -17,13 +17,24 @@ export const mintNFT = async (count) => {
         ABI,
         signer
       );
-      const txn = await mintContract.mint(count, {
+      const overrides = {
         value: ethers.utils.parseEther(
           (parseFloat(wallet.tokens.MINT_FEE) * count).toString()
         ),
         gasLimit: 600000,
         gasPrice,
-      });
+      };
+      const whiteListMintEnabled = await mintContract.whitelistMintEnabled();
+      console.log(whiteListMintEnabled);
+
+      let txn = null;
+      if (whiteListMintEnabled)
+        txn = await mintContract.whitelistMint(
+          wallet.address,
+          count,
+          overrides
+        );
+      else txn = await mintContract.mint(count, overrides);
       await txn.wait();
       fetchMyNFTs(wallet.address);
       return true;
