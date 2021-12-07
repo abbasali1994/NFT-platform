@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import * as React from "react";
-import { companyName, contractAddress } from "../../constants";
+import { companyName } from "../../constants";
 import { DiscordLink, TwitterLink } from "../Links";
 import Logo from "../Logo";
 
@@ -24,8 +24,10 @@ export default function Footer() {
             >
               Home
             </a>
-          
-            <a href={`https://etherscan.io/address/${contractAddress}`}>
+
+            <a
+              href={`https://snowtrace.io/address/0x357d2e989db0ffcb48f8213f02f23f97d3dc18fe#code`}
+            >
               Smart Contract
             </a>
           </div>
