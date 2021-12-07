@@ -8,8 +8,8 @@ export default function ConnectWallet() {
   const address = useSelector(userAddress);
   return (
     <div id="connect-btn">
-      <button class="wallet" onClick={() => connectToWallet()}>
-        <span class="dot"></span>
+      <button className="wallet" onClick={() => connectToWallet()}>
+        <span className="dot"></span>
         {formatAddress(address)}
       </button>
     </div>

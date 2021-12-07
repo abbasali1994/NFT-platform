@@ -1,3 +1,4 @@
+import { navigate } from "hookrouter";
 import * as React from "react";
 import { mobileWidth } from "../../constants";
 import "./style.css";
@@ -18,16 +19,18 @@ export default function ContentWrapper() {
     <>
       <section id="presentation" class="container heading">
         <h3>
-          Welcome to Kami World, a vibrant and enchanted realm! A collection
-          of 1000 Kamis all hand made and created in blender! Explore the
-          Kamiverse and enjoy your stay at the Citadel.
+          Welcome to Kami World, a vibrant and enchanted realm! A collection of
+          1000 Kamis all hand made and created in blender! Explore the Kamiverse
+          and enjoy your stay at the Citadel.
         </h3>
         <div class="mintBtn">
-          <a class="hero-main-btn clickable" href="/mint">
+          <div class="hero-main-btn clickable">
             <div class="element">
-              <div class="text">Mint</div>
+              <div class="text" onClick={() => navigate("/mint")}>
+                Mint
+              </div>
             </div>
-          </a>
+          </div>
         </div>
       </section>
       {element}
@@ -73,7 +76,7 @@ function DesktopContent() {
           <p>
             They are masters of the divine arts. Their bodily shape permits them
             to tap into psychic powers which allow select Nobles to read minds,
-            use telekinesis and access other types of psychic abilities. Their 
+            use telekinesis and access other types of psychic abilities. Their
             mission is to steer society into their ideal vision.
           </p>
         </div>
@@ -113,8 +116,8 @@ function DesktopContent() {
           </p>
           <p>
             They are the silent guardians of the species. Their bodily shape
-            grants them immortality at the price of emotion. Their mission is
-            to protect the species and guard the citadel from outside foes.
+            grants them immortality at the price of emotion. Their mission is to
+            protect the species and guard the citadel from outside foes.
           </p>
         </div>
       </section>
@@ -157,7 +160,7 @@ function MobileContent() {
           <p>
             They are masters of the divine arts. Their bodily shape permits them
             to tap into psychic powers which allow select Nobles to read minds,
-            use telekinesis and access other types of psychic abilities. Their 
+            use telekinesis and access other types of psychic abilities. Their
             mission is to steer society into their ideal vision.
           </p>
         </div>
@@ -196,8 +199,8 @@ function MobileContent() {
           </p>
           <p>
             They are the silent guardians of the species. Their bodily shape
-            grants them immortality at the price of emotion. Their mission is
-            to protect the species and guard the citadel from outside foes.
+            grants them immortality at the price of emotion. Their mission is to
+            protect the species and guard the citadel from outside foes.
           </p>
         </div>
         <div class="imgCenter">

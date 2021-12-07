@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable react/jsx-no-target-blank */
 import * as React from "react";
 import Content from "../../components/Content";
 import Discord from "../../components/Discord";
@@ -10,6 +8,7 @@ export default function LandingPage() {
   return (
     <>
       <Navbar />
+      <img src="images/header.jpg" width={"100%"} alt="header" />
       <Content />
       <Discord />
       <Footer />

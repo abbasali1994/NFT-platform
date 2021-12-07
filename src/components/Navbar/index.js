@@ -3,21 +3,31 @@
 import * as React from "react";
 import ConnectWallet from "../ConnectWallet";
 import { DiscordLink, TwitterLink } from "../Links";
+
 import Logo from "../Logo";
 import "./styles.css";
+import { navigate } from "hookrouter";
 
 export default function Navbar() {
   return (
-    <section id="hero">
-      <header class="container row sr-top-slow header" data-sr-id="0">
-        <Logo />
-        <div class="socialnav row">
-          <TwitterLink />
-          <DiscordLink />
-          <ConnectWallet />
-        </div>
-      </header>
-      <img src="images/header.jpg" width={"100%"} alt="header" />
-    </section>
+    <header className="container row sr-top-slow header" data-sr-id="0">
+      <Logo />
+
+      <button className="wallet" onClick={() => navigate("/")}>
+        Home
+      </button>
+      <button className="wallet" onClick={() => navigate("/mykamis")}>
+        My Kamis
+      </button>
+      <button className="wallet" onClick={() => navigate("/markets")}>
+        Markets
+      </button>
+
+      <div className="socialnav row">
+        <TwitterLink />
+        <DiscordLink />
+        <ConnectWallet />
+      </div>
+    </header>
   );
 }
