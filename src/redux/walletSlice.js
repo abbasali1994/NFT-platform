@@ -22,8 +22,8 @@ export const walletSlice = createSlice({
     setTokens: (state, action) => {
       state.tokens = action.payload;
     },
-    setTokenId: (state, action) => {
-      state.tokens._tokenIdTracker = action.payload;
+    setTotalSupply: (state, action) => {
+      state.tokens.totalSupply = action.payload;
     },
     setMyNFTS: (state, action) => {
       state.myNFTs = action.payload;
@@ -35,7 +35,7 @@ export const walletSlice = createSlice({
 export const {
   setAddress,
   setEnsName,
-  setTokenId,
+  setTotalSupply,
   setTokens,
   setNetworkId,
   setMyNFTS,

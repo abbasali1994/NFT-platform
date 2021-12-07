@@ -8,7 +8,7 @@ import Counter from "../../components/Counter";
 import { MintBtn } from "../../components/MintBtn";
 import { contractAddress } from "../../constants";
 import { networkID, tokens, userAddress } from "../../redux/walletSlice";
-import { fetchNFTTokenID, mintNFT } from "../../utils/nft";
+import { fetchNFTtotalSupply, mintNFT } from "../../utils/nft";
 import nftImage from "./nft.gif";
 
 export default function Mint() {
@@ -22,7 +22,7 @@ export default function Mint() {
       setTxnInProgress(true);
       await mintNFT(counter);
       setTxnInProgress(false);
-      fetchNFTTokenID();
+      fetchNFTtotalSupply();
     }
   };
   return (
@@ -54,7 +54,7 @@ export default function Mint() {
               <MintBtn mint={handleMint} counter={counter} />
             )}
             <div>
-              {tokenDetails._tokenIdTracker} out of {tokenDetails.maxTokens}
+              {tokenDetails.totalSupply} out of {tokenDetails.maxTokens}
             </div>
             <div>Price: {tokenDetails.MINT_FEE} AVAX</div>
           </>

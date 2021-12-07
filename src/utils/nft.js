@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { contractAddress } from "../constants";
-import { setMyNFTS, setTokenId, setTokens } from "../redux/walletSlice";
+import { setMyNFTS, setTokens, setTotalSupply } from "../redux/walletSlice";
 import store from "../store";
 import { getEthersProvider } from "./wallet";
 import ABI from "../ABI.json";
@@ -18,33 +18,21 @@ export const mintNFT = async (count) => {
         signer
       );
       const whiteListMintEnabled = await mintContract.whitelistMintEnabled();
-
+      const overrides = {
+        value: ethers.utils.parseEther(
+          (parseFloat(wallet.tokens.MINT_FEE) * count).toString()
+        ),
+        gasLimit: 600000,
+        gasPrice,
+      };
       let txn = null;
-      if (whiteListMintEnabled) {
-        const _tokenIdTracker = await mintContract.totalSupply();
-
-        const overrides = {
-          value: ethers.utils.parseEther(
-            parseFloat(wallet.tokens.MINT_FEE).toString()
-          ),
-          gasLimit: 600000,
-          gasPrice,
-        };
+      if (whiteListMintEnabled)
         txn = await mintContract.whitelistMint(
           wallet.address,
-          parseInt(_tokenIdTracker) + 1,
+          count,
           overrides
         );
-      } else {
-        const overrides = {
-          value: ethers.utils.parseEther(
-            (parseFloat(wallet.tokens.MINT_FEE) * count).toString()
-          ),
-          gasLimit: 600000,
-          gasPrice,
-        };
-        txn = await mintContract.mint(count, overrides);
-      }
+      else txn = await mintContract.mint(count, overrides);
       await txn.wait();
       fetchMyNFTs(wallet.address);
       return true;
@@ -72,13 +60,13 @@ export const fetchNFTData = async () => {
       const MINT_FEE = ethers.utils.formatEther(
         (await mintContract.MINT_FEE()).toString()
       );
-      const _tokenIdTracker = await mintContract.totalSupply();
+      const totalSupply = await mintContract.totalSupply();
       store.dispatch(
         setTokens({
           maxTokens,
           MAX_MINT_COUNT,
           MINT_FEE,
-          _tokenIdTracker: parseInt(_tokenIdTracker),
+          totalSupply,
         })
       );
     } catch (error) {
@@ -87,7 +75,7 @@ export const fetchNFTData = async () => {
   }
 };
 
-export const fetchNFTTokenID = async () => {
+export const fetchNFTtotalSupply = async () => {
   const provider = getEthersProvider();
   try {
     const signer = provider.getSigner();
@@ -97,9 +85,9 @@ export const fetchNFTTokenID = async () => {
       ABI,
       signer
     );
-    const _tokenIdTracker = (await mintContract.totalSupply()).toString();
+    const totalSupply = (await mintContract.totalSupply()).toString();
 
-    store.dispatch(setTokenId(_tokenIdTracker));
+    store.dispatch(setTotalSupply(totalSupply));
   } catch (error) {
     console.log(error);
   }
