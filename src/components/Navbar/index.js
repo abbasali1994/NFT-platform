@@ -3,7 +3,6 @@
 import * as React from "react";
 import ConnectWallet from "../ConnectWallet";
 import { DiscordLink, TwitterLink } from "../Links";
-import { Link } from "@mui/material";
 
 import Logo from "../Logo";
 import "./styles.css";
@@ -11,38 +10,24 @@ import { navigate } from "hookrouter";
 
 export default function Navbar() {
   return (
-    <div>
-      <header className="container row sr-top-slow header" data-sr-id="0">
-        <Logo />
-        <h5>
-          <Link color="inherit" underline="none" onClick={() => navigate("/")}>
-            Home
-          </Link>
-        </h5>
-        <h5>
-          <Link
-            color="inherit"
-            underline="none"
-            onClick={() => navigate("/mykamis")}
-          >
-            My Kamis
-          </Link>
-        </h5>
-        <h5>
-          <Link
-            color="inherit"
-            underline="none"
-            onClick={() => navigate("/markets")}
-          >
-            Markets
-          </Link>
-        </h5>
-        <div className="socialnav row">
-          <TwitterLink />
-          <DiscordLink />
-          <ConnectWallet />
-        </div>
-      </header>
-    </div>
+    <header className="container row sr-top-slow header" data-sr-id="0">
+      <Logo />
+
+      <button className="wallet" onClick={() => navigate("/")}>
+        Home
+      </button>
+      <button className="wallet" onClick={() => navigate("/mykamis")}>
+        My Kamis
+      </button>
+      <button className="wallet" onClick={() => navigate("/markets")}>
+        Markets
+      </button>
+
+      <div className="socialnav row">
+        <TwitterLink />
+        <DiscordLink />
+        <ConnectWallet />
+      </div>
+    </header>
   );
 }
