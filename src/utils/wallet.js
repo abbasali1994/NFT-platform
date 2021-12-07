@@ -9,6 +9,7 @@ import store from "../store";
 import {
   setAddress,
   setEnsName,
+  setNetworkId,
   setTokenId,
   setTokens,
 } from "../redux/walletSlice";
@@ -68,7 +69,9 @@ export const connectToWallet = async () => {
     const signer = provider.getSigner();
 
     const userAddress = await signer.getAddress();
+    const network = await signer.getChainId();
     store.dispatch(setAddress(userAddress));
+    store.dispatch(setNetworkId(ethers.utils.hexlify(network)));
     try {
       const ensName = await provider.lookupAddress(userAddress);
 
@@ -98,7 +101,7 @@ const setWalletListener = (provider) => {
 
 const setNetworkListener = (provider) => {
   provider.on("chainChanged", async (networkId) => {
-    console.log(networkId.toString());
+    store.dispatch(setNetworkId(networkId));
   });
 };
 
@@ -117,7 +120,12 @@ export const mintNFT = async (count) => {
     try {
       const signer = provider.getSigner();
       const gasPrice = await provider.getGasPrice();
-      const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+      const { wallet } = store.getState();
+      const mintContract = new ethers.Contract(
+        contractAddress[wallet.networkID],
+        ABI,
+        signer
+      );
       const txn = await mintContract.mint(count, {
         value: ethers.utils.parseEther((0.1 * count).toString()),
         gasLimit: 600000,
@@ -135,7 +143,12 @@ export const fetchNFTData = async () => {
   if (provider !== null) {
     try {
       const signer = provider.getSigner();
-      const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+      const { wallet } = store.getState();
+      const mintContract = new ethers.Contract(
+        contractAddress[wallet.networkID],
+        ABI,
+        signer
+      );
       const maxTokens = (await mintContract.maxTokens()).toString();
       const MAX_MINT_COUNT = parseFloat(
         (await mintContract.MAX_MINT_COUNT()).toString()
@@ -155,9 +168,13 @@ export const fetchNFTData = async () => {
 
 export const fetchNFTTokenID = async () => {
   try {
-    console.log("fetchNFTTokenID");
     const signer = provider.getSigner();
-    const mintContract = new ethers.Contract(contractAddress, ABI, signer);
+    const { wallet } = store.getState();
+    const mintContract = new ethers.Contract(
+      contractAddress[wallet.networkID],
+      ABI,
+      signer
+    );
     const _tokenIdTracker = (await mintContract._tokenIdTracker()).toString();
     store.dispatch(setTokenId(_tokenIdTracker));
   } catch (error) {
