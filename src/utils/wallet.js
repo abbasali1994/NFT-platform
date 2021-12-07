@@ -127,7 +127,9 @@ export const mintNFT = async (count) => {
         signer
       );
       const txn = await mintContract.mint(count, {
-        value: ethers.utils.parseEther((0.1 * count).toString()),
+        value: ethers.utils.parseEther(
+          (parseFloat(wallet.tokens.MINT_FEE) * count).toString()
+        ),
         gasLimit: 600000,
         gasPrice,
       });
