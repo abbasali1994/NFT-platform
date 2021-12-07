@@ -21,9 +21,7 @@ export const mintNFT = async (count) => {
 
       let txn = null;
       if (whiteListMintEnabled) {
-        const _tokenIdTracker = (
-          await mintContract._tokenIdTracker()
-        ).toString();
+        const _tokenIdTracker = await mintContract.totalSupply();
 
         const overrides = {
           value: ethers.utils.parseEther(
@@ -34,7 +32,7 @@ export const mintNFT = async (count) => {
         };
         txn = await mintContract.whitelistMint(
           wallet.address,
-          _tokenIdTracker,
+          parseInt(_tokenIdTracker) + 1,
           overrides
         );
       } else {
@@ -74,9 +72,14 @@ export const fetchNFTData = async () => {
       const MINT_FEE = ethers.utils.formatEther(
         (await mintContract.MINT_FEE()).toString()
       );
-      const _tokenIdTracker = (await mintContract._tokenIdTracker()).toString();
+      const _tokenIdTracker = await mintContract.totalSupply();
       store.dispatch(
-        setTokens({ maxTokens, MAX_MINT_COUNT, MINT_FEE, _tokenIdTracker })
+        setTokens({
+          maxTokens,
+          MAX_MINT_COUNT,
+          MINT_FEE,
+          _tokenIdTracker: parseInt(_tokenIdTracker),
+        })
       );
     } catch (error) {
       console.log(error);
@@ -94,7 +97,8 @@ export const fetchNFTTokenID = async () => {
       ABI,
       signer
     );
-    const _tokenIdTracker = (await mintContract._tokenIdTracker()).toString();
+    const _tokenIdTracker = (await mintContract.totalSupply()).toString();
+
     store.dispatch(setTokenId(_tokenIdTracker));
   } catch (error) {
     console.log(error);
