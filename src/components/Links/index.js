@@ -18,7 +18,7 @@ export function DiscordLink() {
   return (
     <div className="link">
       <a
-        href="https://discord.gg/s2Y8RpCg"
+        href="https://discord.gg/GzQPDAXY4J"
         target="_blank"
         className="discord row"
       ></a>
