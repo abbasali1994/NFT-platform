@@ -12,7 +12,7 @@ export default function Discord() {
           with all things Kami.
         </p>
         <div className="sr-top-more-delayed">
-          <a href="https://discord.gg/s2Y8RpCg" className="cta">
+          <a href="https://discord.gg/GzQPDAXY4J" className="cta">
             Join our Discord
           </a>
         </div>

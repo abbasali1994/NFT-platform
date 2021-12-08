@@ -26,7 +26,7 @@ export const mintNFT = async (count) => {
         gasPrice,
       };
       let txn = null;
-      if (whiteListMintEnabled)
+      if (!whiteListMintEnabled)
         txn = await mintContract.mint(
           count,
           overrides
