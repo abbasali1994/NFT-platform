@@ -27,8 +27,7 @@ export const mintNFT = async (count) => {
       };
       let txn = null;
       if (whiteListMintEnabled)
-        txn = await mintContract.whitelistMint(
-          wallet.address,
+        txn = await mintContract.mint(
           count,
           overrides
         );
