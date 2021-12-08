@@ -26,7 +26,7 @@ export default function Footer() {
             </a>
 
             <a
-              href={`https://snowtrace.io/address/0x357d2e989db0ffcb48f8213f02f23f97d3dc18fe#code`}
+              href={`https://snowtrace.io/address/0xfa365cdc258e07b2e2ec9824d06ef823e344f579#writeContract`}
             >
               Smart Contract
             </a>
