@@ -106,8 +106,8 @@ export default function NFT({ nft }) {
                         Enchanted
                       </span>
                       <span className="attribute-container-tail row center">
-                        {nft.attributes.EnchantedTool
-                          ? nft.attributes.EnchantedTool
+                        {nft.attributes["Enchanted Tool"]
+                          ? nft.attributes["Enchanted Tool"]
                           : "None"}
                       </span>
                     </div>
